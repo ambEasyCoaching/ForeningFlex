@@ -1,0 +1,25 @@
+common: &common
+  adapter: postgresql
+  encoding: utf8
+  database: setminton_development
+  pool: 5
+  username: setminton
+  password: setminton
+  host: localhost
+
+development:
+  <<: *common
+
+test:
+  <<: *common
+
+production:
+  <<: *common
+
+proxied-console:
+  adapter: postgresql 
+  database : d10d455e42bbb49c097d525cc1eada896
+  username : ub24a96d740314d9aa83935e9024e5021
+  password : p61d09f8e8bad47469121f9c42683cdfc
+  port: 10000 
+  host: 127.0.0.1  

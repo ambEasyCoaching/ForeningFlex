@@ -1,0 +1,15 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+da:
+  access_denied: "Du har ikke adgang til denne side"
+  logged_in: "Du skal være logget ind for at bruge denne side"
+  logged_out: "Du skal være logget ud for at bruge denne side"
+  login_success: "Du er nu logget ind"
+  logout_success: "Du er nu logget ud"
+  login_failed: "Forkert login"
+  invalid_login: "Ugyldigt login"
+  home:
+    index:
+      meta_description: "I SETminton er det muligt at håndtere medlemmer og kontingenter, oprette banetider, sende meddelelser til medlemmer både pr. SMS og/eller e-mail, oprette træninger, håndtere ventelister, udleje på sæson/daglig basis, udtage spillere til kamp, udskrive holdskemaer mv."
+

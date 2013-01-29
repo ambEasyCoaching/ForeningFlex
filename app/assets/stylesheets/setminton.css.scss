@@ -1,0 +1,77 @@
+* {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+#wrap {
+  min-height: 100%;
+  position: relative;
+}
+
+#content {
+  padding-bottom: 150px;
+}
+
+header.row-fluid {
+  -webkit-box-shadow: 0px 0px 10px #999;
+  -moz-box-shadow: 0px 0px 10px #999;
+  box-shadow: 0px 0px 10px #999;
+  border-bottom: 1px solid #B2B2B2;
+  padding: 10px 0px 10px 0px;
+}
+  
+header.row-fluid, footer.row-fluid {
+  background: whiteSmoke;
+}
+
+footer#page-footer {
+  border-top: 1px solid #B2B2B2;
+  padding: 10px 0px 10px 0px;
+  height: 150px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/*============================================================*/
+/*   FRONT PAGE                                               */
+/*============================================================*/
+#front-page {
+  .well {
+    h5 img {
+      width: 35px;
+    }
+
+    min-height: 225px;
+  }
+
+  .carousel {
+    margin-top: -20px;
+
+    .carousel-inner img {
+      margin: auto;
+    }
+  }
+
+  .sale-point {
+    line-height: 1.8em;
+  }
+}
+
+/*============================================================*/
+/*   LOGIN                                                    */
+/*============================================================*/
+#account {
+  .pull-right .dropdown-menu, .nav .dropdown-menu.pull-right {
+    right: 0px;
+    left: auto;
+  }
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

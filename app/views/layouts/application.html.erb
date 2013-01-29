@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="<%= yield :meta_description %>" />
+  <meta name="keywords" content="<%= yield :meta_keywords %>" />
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  
+  <title>
+    <% page_title = yield :page_title 
+       page_title = "#{page_title} :: SETminton.dk" if page_title.present? and !page_title.downcase.match(/setminton.dk/) %>
+    <%= page_title %>
+  </title>
+  
+  <link rel="shortcut icon" href="<%= image_path 'favicon.ico' %>">
+</head>
+<%- body_id = yield :body_id -%>
+<body<%= " id='#{body_id}'" if body_id.present? -%>>
+  <div id="wrap">
+    <%= render 'layouts/login' %>
+
+    <header class="row-fluid">
+      <div class="span8 offset2">
+        <%= link_to image_tag("logo.png", :width => "250px"), root_path %>
+        <%= render 'layouts/notice' %>
+        <%= render :partial => 'layouts/topmenu', :locals => {:body_id => body_id} %>
+      </div>
+    </header>
+    
+    <br>
+    <section id="content" class="row-fluid">
+      <div class="span8 offset2">
+        <%= yield %>
+      </div>
+    </section>
+    <br>
+    <br>
+
+    <footer id="page-footer" class="row-fluid">
+      <div class="span2 offset2">
+        <h3><img style="width: 35px;" src="<%= image_path 'icons/home.png' %>" /> Firma</h3>
+        <p>
+          SETminton udvikles af <%= link_to "EasyCoaching", "http://www.easycoaching.dk" %><br>
+          Copyright © 2010-2012<br>
+          CVR: 3300 7620
+        </p>
+      </div>
+      
+      <div class="span2">
+        <h3><img style="width: 35px;" src="<%= image_path 'icons/mail.png' %>" /> Kontakt</h3>
+        <p>
+          Telefon: (+45) 6172 0069<br>
+          E-mail: <%= mail_to easycoaching_mail %>
+        </p>
+      </div>
+      
+      <div class="span2">
+        <h3><img style="width: 35px;" src="<%= image_path 'icons/comments.png' %>" /> Support</h3>
+        <p>
+          <%= link_to "Kontakt", contact_path %>
+        </p>
+      </div>
+      
+      <div class="span2">
+        <h3><img style="width: 35px;" src="<%= image_path 'icons/users.png' %>" /> SETminton.dk</h3>
+        <p>
+          Vesterbro 21E<br>
+          9000 Aalborg<br>
+          Danmark
+        </p>
+      </div>
+    </footer>
+  </div>
+
+  <%= render :partial => "shared/modal" %>
+  <%= yield :javascripts %>
+</body>
+</html>

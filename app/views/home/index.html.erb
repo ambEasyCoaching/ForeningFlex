@@ -1,0 +1,130 @@
+<%- content_for :body_id, "front-page" -%>
+<%- content_for :page_title, "Setminton.dk" -%>
+<%- content_for :meta_description, t('.meta_description') -%>
+<%- content_for :meta_keywords do -%>
+EasyCoaching, badminton, sport, idræt, foreninger, klubber, SETminton, SETklatring, SETfodbold, SEThaandbold, SETsvoemning, SETtennis, SETgymnastik, kasserer, bestyrelse, træner, instruktør, spiller, DGI, DBF, DBU, Easy, Coaching, administration, IT-løsning
+<%- end -%>
+
+<h3 style="font-weight: normal;">
+  SETminton.dk | IT-løsning til de danske badmintonklubber/-foreninger
+</h3>
+
+<h4 style="font-weight: normal;">
+  Mulighed for at løse alle jeres opgaver i ét system
+</h4>
+
+<p class="sale-point">
+  SETminton er skræddersyet til netop jeres behov som badmintonklub. 
+  Vi adskiller os fra lignende systemer, ved specifikt at henvende os til badminton. 
+  Dette betyder at der ikke forefindes en masse funktioner i systemet, som henvender sig til øvrige sportsgrene.<br><br>
+
+  SETminton henvender sig til hele klubben og giver bestyrelsen, trænerne, holdlerne og 
+  spillerne en række værktøjer, som alle bidrager til en lettere og sjovere dagligdag i klubben. 
+  Med SETminton får I et system, som samler alle Jeres arbejdsopgaver et sted, og gør det sjovere at være frivillig. 
+  Dette betyder færre fejl, misforståelser og spildtid under den daglige gang som frivillig i badmintonklubben.
+</p>
+
+<hr>
+<div class="row-fluid">
+  <div class="span12">
+    
+    <% @testimonials.each do |t| %>
+    <blockquote class="pull-right">
+      <p>
+        "<%= t[:message] %>"
+      </p>
+      <small><cite title="<%= t[:person] %>"><%= t[:person] %></cite>, <%= t[:from] %></small>
+    </blockquote>
+    <% end %>
+    
+  </div>
+  <div class="clearfix"></div>
+</div>
+<hr>
+
+<div class="row-fluid">
+  <div class="span3 offset1">
+    <div class="well">
+      <h5><%= image_tag "icons/user.png" %> Medlemsmodul</h5>
+      <p>
+        Håndtere de enkelte medlemmer, medlemslister, indberetningstal til kommunen, samt kontingenthåndtering. 
+        Kontingenter kan opkræves med Dankort eller e-Dankort og bliver automatisk bogført i foreningens regnskab.
+      </p>
+    </div>
+  </div>
+  
+  <div class="span3">
+    <div class="well">
+      <h5><%= image_tag "icons/calendar.png" %> Arrangementsmodul</h5>
+      <p>
+        Oprette arrangementer med eller uden betaling fx til klubmesterskaber eller 
+        et bestyrelsesmøde, håndtere deltagerlister og evt. betalingsoversigt, 
+        samt udsendelse af invitationer via SMS og/eller e-mail.
+      </p>
+    </div>
+  </div>
+  
+  <div class="span3">
+    <div class="well">
+      <h5><%= image_tag "icons/comments.png" %> Kommunikationsmodul</h5>
+      <p>
+        Håndtere de enkelte medlemmer, medlemslister, indberetningstal til kommunen, samt kontingenthåndtering. 
+        Kontingenter kan opkræves med Dankort eller e-Dankort og bliver automatisk bogført i foreningens regnskab.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span3 offset1">
+    <div class="well">
+      <h5><%= image_tag "icons/target.png" %> Træningsmodul</h5>
+      <p>
+        Oprette træninger med tilknyttet træner og evt. hjælpetræner, håndtere hvorvidt 
+        træningerne skal være åbne eller lukkede for nye medlemmer, håndtere ventelister 
+        og individuelle træningskontingenter.
+      </p>
+    </div>
+  </div>
+  
+  <div class="span3">
+    <div class="well">
+      <h5><%= image_tag "icons/users.png" %> Holdturneringsmodul</h5>
+      <p>
+        Oprette og styre turneringshold, udtage spillere (samt reserver) til kamp via 
+        SMS og/eller email, evt. håndtere kørsel og vask, håndtere tilbagemeldinger, 
+        samt udskrive officelle holdskemaer.
+      </p>
+    </div>
+  </div>
+  
+  <div class="span3">
+    <div class="well">
+      <h5><%= image_tag "icons/clock.png" %> Baneudlejningsmodul</h5>
+      <p>
+        Håndtering af udlejningstider både for nye, men også eksisterende medlemmer. 
+        Udlejningerne kan foregå på daglig basis eller gentagende hver uge. 
+        Foreningerne vælger selv, hvor mange baner og haller der er aktive.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="span9 offset1">
+    <div class="well large">
+      <h5><%= image_tag "icons/calculator.png" %> Fuldt integeret regnskabsmodul</h5>
+      <p>
+        Regnskabsmodulet i SETminton er fuldt integreret med alle slags opkrævninger, 
+        således at opkrævningerne automatisk bogføres i foreningens aktuelle regnskab, 
+        når indbetalinger registreres i systemet. Dette sparer kassereren for en masse 
+        trivielt arbejde og giver mindre risiko for fejl. 
+        Konkret findes disse områder i modulet; Kontoplan, kassekladder, 
+        bogføringsjournal, resultatopgørelse, balance, årsregnskab og budgetter. 
+        Dette modul, samt resten af systemet, er yderst nemt at ibrugtage og kræver 
+        ingen "videregående uddannelse", så selv den nyeste kasserer kan nemt holde 
+        styr på foreningens regnskab.
+      </p>
+    </div>
+  </div>
+</div>

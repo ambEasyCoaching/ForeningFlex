@@ -1,0 +1,49 @@
+<%- content_for :page_title, "Kontakt" -%>
+<h1>Kontakt</h1>
+<div class="row-fluid" id="contact">
+  <div class="span2">
+    <h4>Virksomhed</h4>
+    <address>
+      EasyCoaching I/S<br>
+      Vesterbro 21E<br>
+      9000 Aalborg<br>
+      (+45) 6172 0069<br>
+      <%= link_to "www.easycoaching.dk", "http://www.easycoaching.dk" %><br>
+      <%= mail_to easycoaching_mail %><br>
+      CVR: 33007620
+    </address>
+  </div>
+
+  <%- profiles = [{
+      :name => "Flemming Kjær", 
+      :email => "fk@easycoaching.dk",
+      :img => "flemse.jpg"
+     },
+     {
+      :name => "Asger Munk Ballegaard", 
+      :email => "amb@easycoaching.dk", 
+      :img => "asger.jpg"
+     },
+     {
+      :name => "Martin Hejgaard Rask", 
+      :email => "mhr@easycoaching.dk", 
+      :img => "martin.jpg"
+     },
+     {
+      :name => "Mads Ohm Larsen", 
+      :email => "mol@easycoaching.dk", 
+      :img => "mads.jpg"
+     }] -%>
+
+  <%- profiles.each do |profile| -%>
+    <div class="span2<%= " offset1" if profile == profiles.first %>">
+      <%= profile[:name] %><br>
+      <%= mail_to profile[:email] %><br>
+      <%= image_tag "profil-pictures/#{profile[:img]}", :class => "profile-pictures img-polaroid", :alt => profile[:name] %>
+    </div>
+  <%- end -%>
+
+</div>
+
+<iframe style="border: 1px solid #000; width:100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="//maps.google.dk/maps?f=q&amp;source=s_q&amp;hl=da&amp;geocode=&amp;q=Vesterbro+21E,+9000+Aalborg&amp;aq=0&amp;oq=Vesterbro+21E,+9000&amp;sll=57.044875,9.910948&amp;sspn=0.009443,0.01929&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Vesterbro+21E,+9000+Aalborg&amp;ll=57.049624,9.910759&amp;spn=0.011673,0.081024&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+<br>

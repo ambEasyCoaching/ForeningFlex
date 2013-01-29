@@ -1,0 +1,49 @@
+<%- content_for :page_title, "Prøv gratis demo" -%>
+<h1>Prøv SETminton.dk gratis!</h1>
+<p>
+	Udfyld nedenstående formular og prøv SETminton.dk gratis i 7 dage. <br>
+	Du vil få mulighed for at se og afprøve nogle af de mange funktionaliteter/moduler vi har i vores system.
+</p>
+
+<%= form_tag demo_popup_pages_path, :remote => true, :method => "post", :class => "form-horizontal" do %>
+	<div class="control-group">
+		<%= label_tag :name, "Navn", :class => "control-label" %>
+		<div class="controls">
+			<%= text_field_tag :name, nil, :placeholder => "F.eks. Anders Andersen" %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= label_tag :email, "E-mail-adresse", :class => "control-label" %>
+		<div class="controls">
+			<%= text_field_tag :email, nil, :type => "email", :placeholder => "F.eks. anders@eksempel.dk" %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= label_tag :cell, "Mobilnr.", :class => "control-label" %>
+		<div class="controls">
+			<%= text_field_tag :cell, nil, :type => "tel", :placeholder => "F.eks. 61720069" %>
+		</div>
+	</div>
+	<div class="control-group">
+		<%= label_tag :club, "Klub/forening", :class => "control-label" %>
+		<div class="controls">
+			<%= text_field_tag :club, nil, :placeholder => "F.eks. DEMO Badmintonklub" %>
+		</div>
+	</div>	
+	<div class="control-group">	
+		<%= label_tag :role, "Rolle", :class => "control-label" %>
+		<div class="controls">
+			<%= text_field_tag :role, nil, :placeholder => "F.eks. Næstformand" %>
+		</div>	
+	</div>
+	<div class="control-group">
+    <div class="controls">
+			<%= submit_tag "Send forespørgsel på et demo-login", :class => "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>
+
+<p>
+	Vi forbeholder os ret til efterfølgende at kontakte dig angående tilbud.<br>
+	<strong>OBS:</strong> Et demo-login virker kun i 7 dage.
+</p>

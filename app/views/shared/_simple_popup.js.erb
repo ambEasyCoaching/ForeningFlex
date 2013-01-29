@@ -1,0 +1,7 @@
+$(document).ready(function() {
+  $("#modal .modal-title").html('<%= js(@modal[:header]) %>');
+  $("#modal .modal-body .modal-content").html('<%= js(@modal[:body]) %>');
+  $("#modal .modal-footer button").html('<%= js(@modal[:button_text]) %>');
+  
+  $("#modal").modal('show');
+});

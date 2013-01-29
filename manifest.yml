@@ -1,0 +1,19 @@
+---
+applications:
+  .:
+    name: !binary |-
+      c2V0bWludG9u
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: SETminton
+        exec: 
+    runtime: ruby193
+    infra: eu-aws
+    url: ${name}.${target-base}
+    mem: 256M
+    instances: 1
+    services:
+      postgresql-9b447:
+        type: postgresql
