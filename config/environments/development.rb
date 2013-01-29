@@ -2,7 +2,10 @@
 class DisableAssetsLogger
   def initialize(app)
     @app = app
-    Rails.application.assets.logger = Logger.new('/dev/null')
+    begin
+      Rails.application.assets.logger = Logger.new('/dev/null')
+    rescue
+    end
   end
 
   def call(env)

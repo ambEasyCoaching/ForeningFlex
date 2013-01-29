@@ -1,11 +1,10 @@
 common: &common
   adapter: postgresql
   encoding: utf8
-  database: setminton_development
+  database: foreningflex_development
   pool: 5
-  username: setminton
-  password: setminton
-  host: localhost
+  username: foreningflex
+  password: foreningflex
 
 development:
   <<: *common
