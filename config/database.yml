@@ -5,6 +5,7 @@ common: &common
   pool: 5
   username: foreningflex
   password: foreningflex
+  host: localhost
 
 development:
   <<: *common

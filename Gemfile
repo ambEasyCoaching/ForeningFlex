@@ -10,7 +10,7 @@ gem "paperclip", "~> 3.0"
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '~> 2.1.0.1'
+  gem 'bootstrap-sass', '~> 2.2.2.0'
   gem 'asset_sync'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -18,6 +18,7 @@ end
 gem 'jquery-rails'
 
 gem 'thin'
+gem 'zeus'
 gem 'authlogic'
 gem 'omniauth-facebook'
 gem 'cancan'
