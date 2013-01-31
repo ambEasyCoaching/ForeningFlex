@@ -18,7 +18,6 @@ end
 gem 'jquery-rails'
 
 gem 'thin'
-gem 'zeus'
 gem 'authlogic'
 gem 'omniauth-facebook'
 gem 'cancan'
