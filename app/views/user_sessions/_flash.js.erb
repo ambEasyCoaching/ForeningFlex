@@ -1,1 +1,5 @@
-  $(".modal-notice").hide().html('<%= @notice %>').show();
+$(".modal-alert").alert("close");
+$(".modal-alert").alert();
+$(".modal-notice").html('<%= j render :partial => "/shared/alert_notice" %>');
+$(".modal-notice .alert-content").html('<%= j @notice -%>')
+

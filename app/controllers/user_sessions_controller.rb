@@ -15,6 +15,7 @@ class UserSessionsController < ApplicationController
         format.js { render js: "window.location.pathname = #{account_path.to_json}" }
       end 
     else
+      @alert_type = "alert-error"
       respond_to do |format|
         format.html { 
           flash[:error] = I18n.t('login_failed')

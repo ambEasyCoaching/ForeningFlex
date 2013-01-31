@@ -1,0 +1,5 @@
+<% @alert_type ||= "" %>
+<div class="modal-alert alert fade in<%= " #{@alert_type}" unless @alert_type.blank? %>">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <span class="alert-content"></div>
+</div>

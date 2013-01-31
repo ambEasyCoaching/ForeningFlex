@@ -1,11 +1,24 @@
 <h1>Log ind</h1>
-<%= form_for @user_session, :url => user_session_path, :method => :post do |f| %>
-  <%= f.label :login %><br>
-  <%= f.text_field :login %><br>
-  <br>
-  <%= f.label :password %><br>
-  <%= f.password_field :password %><br>
-  <br>
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br>
-  <%= f.submit "Log ind", :class => "btn btn-primary" %>
+<%= form_for @user_session, :url => user_session_path, :method => :post, :html => { :class => "form-horizontal" } do |f| %>
+  <div class="control-group">
+    <%= f.label :login, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :login %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <label class="checkbox">
+        <%= f.check_box :remember_me %><%= f.label :remember_me %>  
+      </label>
+      <%= f.submit "Log ind", :class => "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>
