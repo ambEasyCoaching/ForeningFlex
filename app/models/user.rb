@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   has_many :authentications
+  has_many :addresses
 
   acts_as_authentic do |config|
     config.perishable_token_valid_for = 2.weeks
