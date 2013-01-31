@@ -1,11 +1,27 @@
-<%= form.label :login %><br>
-<%= form.text_field :login %><br>
-<br>
-<%= form.label :email %><br>
-<%= form.text_field :email %><br>
-<br>
-<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br>
-<%= form.password_field :password %><br>
-<br>
-<%= form.label :password_confirmation %><br>
-<%= form.password_field :password_confirmation %><br>
+<div class="control-group">
+  <%= form.label :login, :class => "control-label" %>
+  <div class="controls">
+    <%= form.text_field :login %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :email, :class => "control-label" %>
+  <div class="controls">
+    <%= form.text_field :email %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :password, (form.object.new_record? ? nil : "Change password"), :class => "control-label" %>
+  <div class="controls">
+    <%= form.text_field :password %>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :password_confirmation, :class => "control-label" %>
+  <div class="controls">
+    <%= form.text_field :password_confirmation %>
+  </div>
+</div>

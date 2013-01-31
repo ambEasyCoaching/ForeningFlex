@@ -12,6 +12,7 @@ class Ability
       can [:show, :create, :destroy], UserSession
       can :read, User, :id => user.id
       
+      can :manage, User
     end
 
     # Define abilities for the passed in user here. For example:

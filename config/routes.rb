@@ -7,7 +7,7 @@ Setminton::Application.routes.draw do
     end
   end
   
-  match 'login'   => 'user_sessions#new', :as => :login
+  match 'login'   => 'user_sessions#new',     :as => :login
   match 'logout'  => 'user_sessions#destroy', :as => :logout
   
   resource :account, :controller => "users"
