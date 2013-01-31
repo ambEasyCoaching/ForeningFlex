@@ -1,12 +1,11 @@
-$(document).ready(function() {
-  $("#modal .modal-title").html('<h1>Login</h1>');
-  $("#modal .modal-body .modal-content").html('<%= js(render :partial => "new", :user_session => @user_session) %>');
-  $("#modal .modal-footer").html('<%= link_to "Log ind", nil, :class => "btn btn-primary" %>');
-  
-  $("#modal .modal-footer a").click(function(e) {
-    e.preventDefault();
-    $("#new_user_session").submit();
-  });
+$("#modal .modal-title").html('<h1>Login</h1>');
+$("#modal .modal-body .modal-content").html('<%= js(render :partial => "new", :user_session => @user_session) %>');
+$("#modal .modal-footer").html('<%= link_to "Log ind", nil, :class => "btn btn-primary" %>');
 
-  $("#modal").modal('show');
+$("#modal .modal-footer a").click(function(e) {
+  e.preventDefault();
+  $("#new_user_session").submit();
 });
+
+$("#modal").modal('show');
+$("#modal .modal-alert").alert("close");
