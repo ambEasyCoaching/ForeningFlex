@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :addresses, :dependent => :destroy
   
   accepts_nested_attributes_for :authentications
-  accepts_nested_attributes_for :addresses, :allow_destroy => true
+  accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
   has_attached_file :profile_picture, 
                     :path => "/profile-pictures/:id/:basename_:style.:extension",
