@@ -1,216 +1,83 @@
- <h4>Personlige oplysninger</h4>
- <div class="span12">
- 	<div class="row-fluid">
-      	<div class="span10">
-      		<div class="row-fluid">
-      			 		<div class="span1">
-			Navn
-		</div>
-		<div class="span11">
-				
-				<%= text_field_tag :firstName, nil, :placeholder => "Fornavn" %>
-				<%= text_field_tag :middleName, nil, :placeholder => "Mellemnavn" %>
-				<%= text_field_tag :lastName, nil, :placeholder => "Efternavn" %>
-			</div>
-			</div>
-			<div class="row-fluid">
-				<div class="span1">
-					Køn
-				</div>
-				<div class="span1">
-					<label class="radio">
-					  <input type="radio" name="sex" id="sexRadio1" value="male">
-					  Mand
-					</label>
-				</div>
-				<div class="span1">
-					<label class="radio">
-					  <input type="radio" name="sex" id="sexRadio2" value="female">
-					  Kvinde	
-					</label>
-				</div>
-			</div>
-			<div class="row-fluid">
-				Fødselsdato
-				<%= text_field_tag :birthday, nil, :placeholder => "Fødselsdato" %>
-			</div>
-			<div class="row-fluid">
-				Profilbillede
-				<%= text_field_tag :profilPic, nil, :placeholder => "Profilbillede", :type => "file" %>
-				<%= submit_tag "Gem mit nye profilbillede", :class => "btn btn-primary" %>
-			</div>
-	  	</div>
-	  	<div class="span2">
-	  		<%= image_tag "profil-pictures/asger.jpg", :class => "profile-pictures img-polaroid", :alt => "Asger Munk Ballegaard" %>
-	  	</div>
-	</div>
-</div>
+<fieldset>
+  <legend>Personlige oplysninger</legend>
+  <div class="row-fluid">
+    <div class="span6">
+      <%= edit.text_field :first_name, :placeholder => "Fornavn" %>
+      <%= edit.text_field :last_name, :placeholder => "Efternavn" %>
+      <br>
 
- <h4>Kontaktoplysninger</h4>
- <div class="span12">
- 	<div class="row-fluid">
- 		<div class="span1">
-			Adresse
-		</div>
-		<div class="span3">
-			<%= text_field_tag :adress, nil, :placeholder => "Vejnavn og nummer" %>
-		</div>
-		<div class="span1">
-			Postnr.
-		</div>
-		<div class="span3">
-			<%= text_field_tag :zipCode, nil, :placeholder => "Postnummer" %>
-		</div>
-		<div class="span1">
-			By
-		</div>
-		<div class="span3">
-			<%= text_field_tag :city, nil, :placeholder => "By" %>
-		</div>
-	</div>
-	<div class="row-fluid">
-		 <div class="span1">
-			Telefonnr.
-		</div>
-		<div class="span3">
-			<%= text_field_tag :homephone, nil, :placeholder => "Evt. fastnet" %>
-		</div>
-		<div class="span1">
-			Mobilnr.
-		</div>
-		<div class="span3">
-			<%= text_field_tag :mobile, nil, :placeholder => "Mobilnummer" %>
-		</div>
-		<div class="span1">
-			Email
-		</div>
-		<div class="span3">
-			<%= edit.text_field :email, :placeholder => "Email" %>
-		</div>	
-	</div>
-</div>
+      <%= edit.label :gender, :class => "radio inline" do %>
+        <%= edit.radio_button :gender, true %>
+        Mand
+      <% end %>
 
-Tilføj endnu en kontakt
-<input type="checkbox">
+      <%= edit.label :gender, :class => "radio inline" do %>
+        <%= edit.radio_button :gender, false %>
+        Kvinde
+      <% end %>
+      <br><br>
 
-<span style="display:none">
-	<h4>Ekstra kontaktoplysninger</h4>
-	<div class="span12">
-		<div class="row-fluid">
-			<div class="span1">
-			Adresse
-			</div>
-			<div class="span3">
-				<%= text_field_tag :adress2, nil, :placeholder => "Vejnavn og nummer" %>
-			</div>
-			<div class="span1">
-				Postnr.
-			</div>
-			<div class="span3">
-				<%= text_field_tag :zipCode2, nil, :placeholder => "Postnummer" %>
-			</div>
-			<div class="span1">
-				By
-			</div>
-			<div class="span3">
-				<%= text_field_tag :city2, nil, :placeholder => "By" %>
-			</div>
-		</div>
-		<div class="row-fluid">
-			 <div class="span1">
-				Telefonnr.
-			</div>
-			<div class="span3">
-				<%= text_field_tag :homephone2, nil, :placeholder => "Evt. fastnet" %>
-			</div>
-			<div class="span1">
-				Mobilnr.
-			</div>
-			<div class="span3">
-				<%= text_field_tag :mobile2, nil, :placeholder => "Mobilnummer" %>
-			</div>
-			<div class="span1">
-				Email
-			</div>
-			<div class="span3">
-				<%= text_field_tag :email2, :placeholder => "Email" %>
-			</div>	
-		</div>
-	</div>
-</span>
+      <%= edit.label :birth_day, "Fødselsdato" %>
+      <%= edit.date_select :birth_day, { :placeholder => "Fødselsdato", :start_year => 1900 }, { :class => "span4" } %>
+    </div>
+    <div class="span6">
+      <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
+      <%= edit.label :profile_picture, "Profilbillede" %>
+      <%= edit.file_field :profile_picture %>
+    </div>
+</fieldset>
 
-<h4>Kluboplysninger for #KLUBBENS NAVN</h4>
- <div class="span12">
- 	<div class="row-fluid">
- 		<div class="span1">
-			Medlemsnr.
-		</div>
-		<div class="span3">
-			<%= text_field_tag :memberNo, nil, :placeholder => "Medlemsnummer" %>
-		</div>
-		<div class="span1">
-			Årgang
-		</div>
-		<div class="span3">
-			<%= text_field_tag :ageGroup, nil, :placeholder => "Årgang" %>
-		</div>
-		<div class="span1">
-			Kategori
-		</div>
-		<div class="span3">
-			<%= text_field_tag :category, nil, :placeholder => "Kategori" %>
-		</div>
-	</div>
-	<div class="row-fluid">
-		 <div class="span1">
-			Indmeldelse
-		</div>
-		<div class="span3">
-			<%= text_field_tag :enrollment, nil, :placeholder => "Indmeldelsesdato" %>
-		</div>
-		<div class="span1">
-			Betalt kontingent
-		</div>
-		<div class="span3">
-			<%= text_field_tag :lastAmountPaid, nil, :placeholder => "Betalt kontinget beløb" %>
-		</div>
-		<div class="span1">
-			Betalingsdato
-		</div>
-		<div class="span3">
-			<%= text_field_tag :lastAmountPaidDate, nil, :placeholder => "Betalt kontinget dato" %>
-		</div>	
-	</div>
-</div>
+<fieldset>
+  <legend>Kontaktoplysninger</legend>
+  
+  <%= link_to '#', :class => "btn btn-small add_address" do %>
+    <i class='icon-plus'></i> Tilføj ny adresse
+  <% end %>
+  <div class="clearfix"></div>
+  <br>
 
-<h4>Systemoplysninger til ForeningFlex.dk</h4>
- <div class="span12">
- 	<div class="row-fluid">
- 		<div class="span1">
-			Rettighedder
-		</div>
-		<div class="span3">
-			<%= text_field_tag :role, nil, :placeholder => "Rettighedder i systemet" %>
-		</div>
-		<div class="span1">
-			Brugernavn
-		</div>
-		<div class="span3">
-			<%= edit.text_field :login, :placeholder => "Brugernavn" %>
-		</div>
-	</div>
-	<div class="row-fluid">
-		 <div class="span1">
-			Adgangskode
-		</div>
-		<div class="span3">
-			<%= edit.password_field :password, :placeholder => "Ny adgangskode" %>
-		</div>
-		<div class="span1">
-			Bekræft
-		</div>
-		<div class="span3">
-			<%= edit.password_field :password_confirmation, :placeholder => "Bekræft den nye adgangskode" %>
-		</div>
-	</div>
-</div>
+  <%= edit.fields_for :addresses do |builder| %>
+    <%= render "address_fields", :f => builder %>
+  <% end %>
+</fieldset>
+
+<fieldset>
+  <legend>Kontooplysninger</legend>
+  <%= edit.label :login, "Brugernavn" %>
+  <%= text_field_tag :login, @current_user.login, :disabled => true %>
+
+  <%= edit.label :password, "Adgangskode" %>
+  <%= edit.password_field :password, :placeholder => "Ny adgangskode" %>
+    
+  <%= edit.label :password_confirmation, "Bekræft" %>
+  <%= edit.password_field :password_confirmation, :placeholder => "Bekræft den nye adgangskode" %>
+</fieldset>
+
+<% content_for :scripts do %>
+  <script>
+    function remove_address(link) {
+      $(link).prev("input[type=hidden]").val("1");
+      $(link).closest(".fields").slideUp();
+    }
+    $(".remove_address").click(function(e) {
+      remove_address(this);
+      e.preventDefault();
+    });
+  
+    $(".add_address").click(function (e) {
+      var content = "<%= add_fields_data(edit, :addresses).html_safe -%>";
+      var new_id = new Date().getTime();
+      var regexp = new RegExp("new_addresses", "g");
+
+      $(this).parent().append(content.replace(regexp, new_id));
+      $("#user_addresses_attributes_" + new_id + "__destroy").closest(".fields").hide().slideDown();
+
+      
+      $(".remove_address").click(function() {
+        remove_address(this);
+      });
+      
+      e.preventDefault();
+    });
+  </script>
+<% end %>

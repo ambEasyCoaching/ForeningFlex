@@ -1,7 +1,24 @@
 # -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
   has_many :authentications
-  has_many :addresses
+  has_many :addresses, :dependent => :destroy
+  
+  accepts_nested_attributes_for :authentications
+  accepts_nested_attributes_for :addresses, :allow_destroy => true
+
+  has_attached_file :profile_picture, 
+                    :path => "/profile-pictures/:id/:basename_:style.:extension",
+                    :storage => :s3, 
+                    :s3_credentials => "#{Rails.root}/config/s3.yml",
+                    :s3_host_name => "s3-eu-west-1.amazonaws.com",
+                    :s3_headers => { 
+                      "Expires"       => 1.year.from_now.httpdate, 
+                      "Cache-Control" => "public, max-age=31557600" 
+                    },
+                    :styles => { 
+                      :medium => "300x300>", 
+                      :thumb => "150x150>"
+                    }
 
   acts_as_authentic do |config|
     config.perishable_token_valid_for = 2.weeks

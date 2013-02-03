@@ -25,8 +25,8 @@
     <header class="row-fluid">
       <div class="span8 offset2">
         <%= link_to image_tag("logo.png", :width => "250px"), root_path %>
-        <%= render 'layouts/notice' %>
         <%= render :partial => 'layouts/topmenu', :locals => {:body_id => body_id} %>
+        <%= render 'layouts/notice' %>
       </div>
     </header>
     
@@ -76,6 +76,6 @@
   </div>
 
   <%= render :partial => "shared/modal" %>
-  <%= yield :javascripts %>
+  <%= yield :scripts %>
 </body>
 </html>

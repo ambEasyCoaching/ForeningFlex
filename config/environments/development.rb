@@ -1,4 +1,3 @@
-
 class DisableAssetsLogger
   def initialize(app)
     @app = app
@@ -56,8 +55,6 @@ Setminton::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
-
-  config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
 
   # Do not show assets in log info
   config.assets.logger = nil

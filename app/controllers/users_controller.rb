@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   
   def show
     @user = @current_user
+    @user.addresses.build if @user.addresses.blank?
   end
   
   def update

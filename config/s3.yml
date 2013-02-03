@@ -1,0 +1,9 @@
+development:
+  bucket: foreningflex-development
+  access_key_id: AKIAIS7QTMQAO5BHAU2A
+  secret_access_key: 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
+
+production:
+  bucket: foreningflex
+  access_key_id: AKIAIS7QTMQAO5BHAU2A
+  secret_access_key: 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

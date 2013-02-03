@@ -1,0 +1,36 @@
+<div class="fields">
+  <div class="row-fluid">
+    <div class="span3">
+      <%= f.label :address, "Adresse" %>
+      <%= f.text_field :address %>
+
+      <%= f.label :phone, "Telefon nr." %>
+      <%= f.text_field :phone %>
+    </div>
+
+    <div class="span3">
+      <%= f.label :zip, "Postnr." %>
+      <%= f.text_field :zip %>
+
+      <%= f.label :mobile, "Mobil nr." %>
+      <%= f.text_field :mobile %>
+    </div>
+
+    <div class="span3">
+      <%= f.label :city, "By" %>
+      <%= f.text_field :city %>
+
+      <%= f.label :email, "E-mail" %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div class="span1">
+      <%= f.hidden_field :_destroy %>
+      <%= link_to '#', :class => "remove_address btn btn-small btn-danger", :remote => true do %>
+        <i class="icon-trash icon-white"></i> Fjern
+      <% end %>  
+    </div>
+  </div>
+</div>
+
+<hr>
