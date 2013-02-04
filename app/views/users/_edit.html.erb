@@ -6,7 +6,7 @@
       <%= edit.text_field :first_name, :placeholder => "Fornavn", :disabled => true %>
 
       <%= edit.label :birth_day, "Fødselsdato" %>
-      <%= edit.date_select :birth_day, { :placeholder => "Fødselsdato", :start_year => 1900 }, { :class => "span4" } %>
+      <%= edit.date_select :birth_day, { :placeholder => "Fødselsdato", :start_year => 1900 }, { :class => "span4", :disabled => true } %>
     </div>
     <div class="span3">
       <%= edit.label :last_name, "Efternavn" %>
@@ -28,8 +28,6 @@
       <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
       <%= edit.label :profile_picture, "Profilbillede" %>
       <%= edit.file_field :profile_picture %>
-      <%= submit_tag "Gem profilbillede", :class => "btn btn-success" %>
-
     </div>
 </fieldset>
 
@@ -77,26 +75,26 @@
     <div class="row-fluid">
       <div class="span3">
         <%= edit.label :member_no, "Medlemsnr." %>
-        <%= text_field_tag :member_no, :disabled => true  %>
+        <%= text_field_tag :member_no, nil, :disabled => true  %>
 
         <%= edit.label :age_group, "Årgang" %>
-        <%= text_field_tag :age_group, :disabled => true  %>
+        <%= text_field_tag :age_group, nil, :disabled => true  %>
       </div>
 
       <div class="span3">
         <%= edit.label :category, "Kategori" %>
-        <%= text_field_tag :category, :disabled => true  %>
+        <%= text_field_tag :category, nil, :disabled => true  %>
 
         <%= edit.label :enrollment, "Indmeldelsesdato" %>
-        <%= text_field_tag :enrollment, :disabled => true  %>
+        <%= text_field_tag :enrollment, nil, :disabled => true  %>
       </div>
 
       <div class="span3">
         <%= edit.label :last_amount_paid, "Sidste betalte kontinget beløb" %>
-        <%= text_field_tag :last_amount_paid, :disabled => true %>
+        <%= text_field_tag :last_amount_paid, nil, :disabled => true %>
 
         <%= edit.label :last_amount_paid_date, "Sidste betalte kontinget dato" %>
-        <%= text_field_tag :last_amount_paid_date, :disabled => true  %>
+        <%= text_field_tag :last_amount_paid_date, nil, :disabled => true  %>
       </div>
     </div>
   </div>
