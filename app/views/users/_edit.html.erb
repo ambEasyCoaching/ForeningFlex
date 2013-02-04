@@ -1,29 +1,35 @@
 <fieldset>
   <legend>Personlige oplysninger</legend>
   <div class="row-fluid">
-    <div class="span6">
-      <%= edit.text_field :first_name, :placeholder => "Fornavn" %>
-      <%= edit.text_field :last_name, :placeholder => "Efternavn" %>
-      <br>
-
-      <%= edit.label :gender, :class => "radio inline" do %>
-        <%= edit.radio_button :gender, true %>
-        Mand
-      <% end %>
-
-      <%= edit.label :gender, :class => "radio inline" do %>
-        <%= edit.radio_button :gender, false %>
-        Kvinde
-      <% end %>
-      <br><br>
+    <div class="span3">
+      <%= edit.label :first_name, "Fornavn" %>
+      <%= edit.text_field :first_name, :placeholder => "Fornavn", :disabled => true %>
 
       <%= edit.label :birth_day, "Fødselsdato" %>
       <%= edit.date_select :birth_day, { :placeholder => "Fødselsdato", :start_year => 1900 }, { :class => "span4" } %>
     </div>
+    <div class="span3">
+      <%= edit.label :last_name, "Efternavn" %>
+      <%= edit.text_field :last_name, :placeholder => "Efternavn", :disabled => true %>
+
+            <%= edit.label :gender, "Køn" %>
+      <%= edit.label :gender, :class => "radio inline" do %>
+        <%= edit.radio_button :gender, true, :disabled => true %>
+        Mand
+      <% end %>
+
+      <%= edit.label :gender, :class => "radio inline" do %>
+        <%= edit.radio_button :gender, false, :disabled => true %>
+        Kvinde
+      <% end %>
+    </div>
+
     <div class="span6">
       <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
       <%= edit.label :profile_picture, "Profilbillede" %>
       <%= edit.file_field :profile_picture %>
+      <%= submit_tag "Gem profilbillede", :class => "btn btn-success" %>
+
     </div>
 </fieldset>
 
@@ -31,7 +37,7 @@
   <legend>Kontaktoplysninger</legend>
   
   <%= link_to '#', :class => "btn btn-small add_address" do %>
-    <i class='icon-plus'></i> Tilføj ny adresse
+    <i class='icon-plus'></i> Tilføj ekstra adresse
   <% end %>
   <div class="clearfix"></div>
   <br>
@@ -43,15 +49,59 @@
 
 <fieldset>
   <legend>Kontooplysninger</legend>
-  <%= edit.label :login, "Brugernavn" %>
-  <%= text_field_tag :login, @current_user.login, :disabled => true %>
+    <div class="fields">
+    <div class="row-fluid">
+      <div class="span3">
+        <%= edit.label :login, "Brugernavn" %>
+        <%= text_field_tag :login, @current_user.login %>
+      </div>
 
-  <%= edit.label :password, "Adgangskode" %>
-  <%= edit.password_field :password, :placeholder => "Ny adgangskode" %>
-    
-  <%= edit.label :password_confirmation, "Bekræft" %>
-  <%= edit.password_field :password_confirmation, :placeholder => "Bekræft den nye adgangskode" %>
+      <div class="span3">
+        <%= edit.label :password, "Adgangskode" %>
+        <%= edit.password_field :password, :placeholder => "Ny adgangskode" %>
+      </div>
+
+      <div class="span3">
+        <%= edit.label :password_confirmation, "Bekræft" %>
+        <%= edit.password_field :password_confirmation, :placeholder => "Bekræft den nye adgangskode" %>
+      </div>
+    </div>
+  </div>
 </fieldset>
+
+<br>
+
+<fieldset>
+  <legend>Kluboplysninger</legend>
+  <div class="fields">
+    <div class="row-fluid">
+      <div class="span3">
+        <%= edit.label :member_no, "Medlemsnr." %>
+        <%= text_field_tag :member_no, :disabled => true  %>
+
+        <%= edit.label :age_group, "Årgang" %>
+        <%= text_field_tag :age_group, :disabled => true  %>
+      </div>
+
+      <div class="span3">
+        <%= edit.label :category, "Kategori" %>
+        <%= text_field_tag :category, :disabled => true  %>
+
+        <%= edit.label :enrollment, "Indmeldelsesdato" %>
+        <%= text_field_tag :enrollment, :disabled => true  %>
+      </div>
+
+      <div class="span3">
+        <%= edit.label :last_amount_paid, "Sidste betalte kontinget beløb" %>
+        <%= text_field_tag :last_amount_paid, :disabled => true %>
+
+        <%= edit.label :last_amount_paid_date, "Sidste betalte kontinget dato" %>
+        <%= text_field_tag :last_amount_paid_date, :disabled => true  %>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
 
 <% content_for :scripts do %>
   <script>

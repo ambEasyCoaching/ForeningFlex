@@ -2,12 +2,12 @@
 <% if current_user.present? %>
   <div class="dropdown pull-right">
     <div class="btn-group">
-      <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-        Konto
+      <button class="btn btn-mini dropdown-toggle btn-primary" data-toggle="dropdown">
+        <i class="icon-user icon-white"></i> Min konto
         <span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
-        <li><%= link_to "Konto", account_path %></li>
+        <li><%= link_to "Min konto", account_path %></li>
         <li><%= link_to "Log ud", logout_path %></li>
       </ul>
     </div>

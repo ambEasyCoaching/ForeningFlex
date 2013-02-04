@@ -2,35 +2,36 @@
   <div class="row-fluid">
     <div class="span3">
       <%= f.label :address, "Adresse" %>
-      <%= f.text_field :address %>
+      <%= f.text_field :address, :placeholder => "F.eks. Andevej 4" %>
 
       <%= f.label :phone, "Telefon nr." %>
-      <%= f.text_field :phone %>
+      <%= f.text_field :phone, :placeholder => "F.eks. 12346578" %>
     </div>
 
     <div class="span3">
       <%= f.label :zip, "Postnr." %>
-      <%= f.text_field :zip %>
+      <%= f.text_field :zip, :placeholder => "F.eks. 1234" %>
 
       <%= f.label :mobile, "Mobil nr." %>
-      <%= f.text_field :mobile %>
+      <%= f.text_field :mobile, :placeholder => "F.eks. 87654321" %>
     </div>
 
     <div class="span3">
       <%= f.label :city, "By" %>
-      <%= f.text_field :city %>
+      <%= f.text_field :city, :placeholder => "F.eks. Andeby" %>
 
       <%= f.label :email, "E-mail" %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, :placeholder => "F.eks. andevej@andeby.dk" %>
     </div>
 
-    <div class="span1">
+    <div class="span3">
+      <%= f.label :_destroy, "Fjern adresse" %>
       <%= f.hidden_field :_destroy %>
       <%= link_to '#', :class => "remove_address btn btn-small btn-danger", :remote => true do %>
-        <i class="icon-trash icon-white"></i> Fjern
+        <i class="icon-trash icon-white"></i>
       <% end %>  
     </div>
   </div>
 </div>
 
-<hr>
+<br>
