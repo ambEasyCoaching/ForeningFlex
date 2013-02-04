@@ -2,7 +2,8 @@
 class User < ActiveRecord::Base
   has_many :authentications
   has_many :addresses, :dependent => :destroy
-  
+  has_and_belongs_to_many :clubs
+
   #################
   # Validators
   
