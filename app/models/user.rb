@@ -3,6 +3,11 @@ class User < ActiveRecord::Base
   has_many :authentications
   has_many :addresses, :dependent => :destroy
   
+  #################
+  # Validators
+  
+  validates_format_of :first_name, :last_name, :with => /\A[-A-Za-zæøåÆØÅ\. ]+\z/, :message => "er ugyldigt"
+  
   accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 

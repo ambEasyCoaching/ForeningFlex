@@ -2,6 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 da:
+  activerecord:
+    models:
+      user: Brugeren
+    attributes:
+      addresses:
+        phone: Telefonnummer
   access_denied: "Du har ikke adgang til denne side"
   logged_in: "Du skal være logget ind for at bruge denne side"
   logged_out: "Du skal være logget ud for at bruge denne side"

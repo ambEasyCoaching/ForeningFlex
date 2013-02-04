@@ -3,16 +3,16 @@
   <div class="row-fluid">
     <div class="span3">
       <%= edit.label :first_name, "Fornavn" %>
-      <%= edit.text_field :first_name, :placeholder => "Fornavn", :disabled => true %>
+      <%= edit.text_field :first_name, :placeholder => "Fornavn" %>
 
       <%= edit.label :birth_day, "Fødselsdato" %>
       <%= edit.date_select :birth_day, { :placeholder => "Fødselsdato", :start_year => 1900 }, { :class => "span4", :disabled => true } %>
     </div>
     <div class="span3">
       <%= edit.label :last_name, "Efternavn" %>
-      <%= edit.text_field :last_name, :placeholder => "Efternavn", :disabled => true %>
+      <%= edit.text_field :last_name, :placeholder => "Efternavn" %>
 
-            <%= edit.label :gender, "Køn" %>
+      <%= edit.label :gender, "Køn" %>
       <%= edit.label :gender, :class => "radio inline" do %>
         <%= edit.radio_button :gender, true, :disabled => true %>
         Mand
@@ -25,7 +25,11 @@
     </div>
 
     <div class="span6">
-      <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
+      <% if @user.profile_picture.nil? %>
+        <%= image_tag "profile.gif", :class => "img-polaroid pull-right" -%>
+      <% else %>
+        <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
+      <% end %>
       <%= edit.label :profile_picture, "Profilbillede" %>
       <%= edit.file_field :profile_picture %>
     </div>

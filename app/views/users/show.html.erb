@@ -1,7 +1,11 @@
 <h1>Mine medlemsinformationer</h1>
 
 <%= form_for @user, :url => account_path, :html => { :multipart => true } do |f| %>
-  <%= f.error_messages %>
+  <% unless f.error_messages.empty? %>
+    <div class="alert alert-danger">
+      <%= f.error_messages %>
+    </div>
+  <% end %>
   <%= render :partial => "edit", :object => f %>
   <br>
   <%= f.submit "Gem mine medlemsinformationer", :class => "btn btn-success" %>

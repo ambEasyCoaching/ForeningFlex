@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       render :action => :new
     end
   end
-  
+
   def show
     @user = @current_user
     @user.addresses.build if @user.addresses.blank?
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Konto opdateret"
       redirect_to account_url
     else
-      render :action => :edit
+      render :action => :show
     end
   end
 end
