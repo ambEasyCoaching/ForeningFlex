@@ -21,6 +21,10 @@ Setminton::Application.routes.draw do
   match 'kontakt' => 'pages#contact', :as => :contact
   match 'demo'    => 'pages#demo', :as => :demo
 
+  match 'udmeld'  => 'users#resign', :as => :resign
+
+  match 'indstillinger' => 'clubs#edit', :as => :edit
+
   resource :pages do
     post :demo_popup
   end

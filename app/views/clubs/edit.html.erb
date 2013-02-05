@@ -1,0 +1,39 @@
+<h3>Klubstyring » Indstillinger</h3>
+
+<%= form_for @club, :url => club_path, :html => { :multipart => true } do |f| %>
+  <% unless f.error_messages.empty? %>
+    <div class="alert alert-danger">
+      <%= f.error_messages %>
+    </div>
+  <% end %>
+  <fieldset>
+    <legend>Klubinformationer</legend>
+    <div class="row-fluid">
+      <div class="span3">
+        <%= edit.label :name, "Klubnavn" %>
+        <%= edit.text_field :name, :placeholder => "F.eks. Demoklubben" %>
+
+        <%= edit.label :website, "Hjemmeside" %>
+        <%= edit.text_field :website, :placeholder => "F.eks. http://www.demoklubben.dk" %>
+      </div>
+      <div class="span3">
+        <%= edit.label :initials, "Klubinitialer " %>
+        <%= edit.text_field :initials, :placeholder => "F.eks. DK" %>
+
+        <%= edit.label :cvr, "Evt. CVR nr." %>
+        <%= edit.text_field :cvr, :placeholder => "F.eks. 33007620" %>
+      </div>
+
+      <div class="span6">
+        <% if @user.profile_picture.nil? %>
+          <%= image_tag "profile.gif", :class => "img-polaroid pull-right" -%>
+        <% else %>
+          <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
+        <% end %>
+        <%= edit.label :logo, "Profilbillede" %>
+        <%= edit.file_field :logo %>
+      </div>
+  </fieldset>
+  <br>
+  <%= f.submit "Gem mine medlemsinformationer", :class => "btn btn-success" %>
+<% end %>
