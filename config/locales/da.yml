@@ -8,6 +8,17 @@ da:
     attributes:
       addresses:
         phone: Telefonnummer
+        mobile: Mobilnummer
+        zip: Postnummer
+        city: By
+        address: Adresse
+        email: E-mail
+      user:
+        first_name: Fornavn
+        last_name: Efternavn
+        gender: Køn
+        birth_day: Fødselsdato
+        login: Brugernavn
   access_denied: "Du har ikke adgang til denne side"
   logged_in: "Du skal være logget ind for at bruge denne side"
   logged_out: "Du skal være logget ud for at bruge denne side"
@@ -17,5 +28,5 @@ da:
   invalid_login: "Ugyldigt login"
   home:
     index:
-      meta_description: "I SETminton er det muligt at håndtere medlemmer og kontingenter, oprette banetider, sende meddelelser til medlemmer både pr. SMS og/eller e-mail, oprette træninger, håndtere ventelister, udleje på sæson/daglig basis, udtage spillere til kamp, udskrive holdskemaer mv."
+      meta_description: "I ForeningFlex er det muligt at håndtere medlemmer og kontingenter, oprette banetider, sende meddelelser til medlemmer både pr. SMS og/eller e-mail, oprette træninger, håndtere ventelister, udleje på sæson/daglig basis, udtage spillere til kamp, udskrive holdskemaer mv."
 

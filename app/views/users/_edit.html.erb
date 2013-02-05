@@ -3,14 +3,14 @@
   <div class="row-fluid">
     <div class="span3">
       <%= edit.label :first_name, "Fornavn" %>
-      <%= edit.text_field :first_name, :placeholder => "Fornavn" %>
+      <%= edit.text_field :first_name, :placeholder => "Fornavn", :disabled => true %>
 
       <%= edit.label :birth_day, "Fødselsdato" %>
       <%= edit.date_select :birth_day, { :placeholder => "Fødselsdato", :start_year => 1900 }, { :class => "span4", :disabled => true } %>
     </div>
     <div class="span3">
       <%= edit.label :last_name, "Efternavn" %>
-      <%= edit.text_field :last_name, :placeholder => "Efternavn" %>
+      <%= edit.text_field :last_name, :placeholder => "Efternavn", :disabled => true %>
 
       <%= edit.label :gender, "Køn" %>
       <%= edit.label :gender, :class => "radio inline" do %>

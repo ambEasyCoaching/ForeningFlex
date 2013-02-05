@@ -1,12 +1,89 @@
 <nav class="navbar navbar-inverse">
   <div class="navbar-inner">
     <ul class="nav">
-      <li><%= link_to "Forside", root_path %></li>
-      <li><%= link_to "Om ForeningFlex", about_path %></li>
-      <li><%= link_to "Kontakt", contact_path %></li>
-      <li><%= link_to "Lej en bane", about_path %></li>
-      <li><%= link_to "Indmeldelse i en klub", about_path %></li>
-      <li><%= link_to "Prøv en demo?", demo_path %></li>
+      <% if current_user.player? %>
+        <%= render :partial => "shared/menu/standard" %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Medlem
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= render :partial => "shared/menu/trainings" %>
+            <%= render :partial => "shared/menu/events" %>
+            <%= render :partial => "shared/menu/member" %>
+          </ul>
+        </li>
+      <% elsif current_user.leader? %>
+        <%= render :partial => "shared/menu/standard" %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Leder
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= render :partial => "shared/menu/communication" %>
+            <%= render :partial => "shared/menu/events" %>
+            <%= render :partial => "shared/menu/member" %>
+          </ul>
+        </li>
+      <% elsif current_user.coach? %>
+        <%= render :partial => "shared/menu/standard" %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Træner
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= render :partial => "shared/menu/trainings" %>
+            <%= render :partial => "shared/menu/tournament" %>
+            <%= render :partial => "shared/menu/communication" %>
+            <%= render :partial => "shared/menu/member_control" %>
+            <%= render :partial => "shared/menu/events" %>
+            <%= render :partial => "shared/menu/member" %>
+          </ul>
+        </li>
+      <% elsif current_user.committee? %>
+        <%= render :partial => "shared/menu/standard" %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Udvalgsmedlem
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= render :partial => "shared/menu/member_control" %>
+            <%= render :partial => "shared/menu/communication" %>
+            <%= render :partial => "shared/menu/events" %>
+            <%= render :partial => "shared/menu/trainings" %>
+            <%= render :partial => "shared/menu/tournament" %>
+            <%= render :partial => "shared/menu/member" %>
+          </ul>
+        </li>
+      <% elsif current_user.board? %>
+        <%= render :partial => "shared/menu/standard" %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Bestyrelsesmedlem
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <%= render :partial => "shared/menu/member_control" %>
+            <%= render :partial => "shared/menu/communication" %>
+            <%= render :partial => "shared/menu/events" %>
+            <%= render :partial => "shared/menu/trainings" %>
+            <%= render :partial => "shared/menu/tournament" %>
+            <%= render :partial => "shared/menu/accounting" %>
+            <%= render :partial => "shared/menu/club" %>
+            <%= render :partial => "shared/menu/member" %>
+          </ul>
+        </li>
+      <%- else -%>
+        <li><%= link_to "Forside", root_path %></li>
+        <li><%= link_to "Om ForeningFlex", about_path %></li>
+        <li><%= link_to "Kontakt", contact_path %></li>
+        <li><%= link_to "Find en klub", about_path %></li>
+        <li><%= link_to "Prøv en demo?", demo_path %></li>
+      <%- end -%>
     </ul>
   </div>
 </nav>

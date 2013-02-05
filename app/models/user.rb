@@ -7,8 +7,11 @@ class User < ActiveRecord::Base
   #################
   # Validators
   
-  validates_format_of :first_name, :last_name, :with => /\A[-A-Za-zæøåÆØÅ\. ]+\z/, :message => "er ugyldigt"
-  
+  validates_format_of :first_name, :last_name, :with => /\A[-A-Za-zæøåÆØÅüÜäÄëËïÏöÖÿáÁéÉúÚýÝíÍóÓâÂêÊûÛîÎôÔàÀèÈùÙìÌòÒ\. ]+\z/, :message => "er ugyldigt (må ikke indeholde tal eller specieltegn)"
+  validates_presence_of :gender, :message => "er ikke bestemt"
+  #validates_length_of :login, :minimum => 4
+  #validates_inclusion_of :birth_day, :in => 2..99, message => "ugyldig"
+
   accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
@@ -34,7 +37,7 @@ class User < ActiveRecord::Base
   end 
   
   # Adding new roles should ALWAYS happen at the end of this array
-  ROLES = %w[admin super_board board committee trainer coach player]
+  ROLES = %w[admin super_board board committee coach leader player]
 
   #################
   # Scopes 
