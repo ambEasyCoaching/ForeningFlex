@@ -12,16 +12,19 @@ Setminton::Application.routes.draw do
   
   resource :account, :controller => "users"
 
-  resources :users 
+  scope 'bruger' do
+    match 'udmeld' => 'users#resign', :as => "resign/users"
+    match ':id/udmeld' => 'users#resign', :as => "resign/user"
+  end
 
   resources :authentications
   match '/auth/:provider/callback' => 'authentications#create'
   
-  match 'om'      => 'pages#about', :as => :about
-  match 'kontakt' => 'pages#contact', :as => :contact
-  match 'demo'    => 'pages#demo', :as => :demo
-
-  match 'udmeld'  => 'users#resign', :as => :resign
+  scope 'sider' do
+    match 'om'      => 'pages#about', :as => :about
+    match 'kontakt' => 'pages#contact', :as => :contact
+    match 'demo'    => 'pages#demo', :as => :demo
+  end
 
   match 'indstillinger' => 'clubs#edit', :as => :edit
 

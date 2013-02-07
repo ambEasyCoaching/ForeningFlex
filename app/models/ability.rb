@@ -11,6 +11,7 @@ class Ability
       # Everybody
       can [:show, :create, :destroy], UserSession
       can :read, User, :id => user.id
+      can :resign, User, :id => user.id
       
       can :manage, User
     end
