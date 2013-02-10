@@ -1,3 +1,14 @@
+<div class="center">
+  <%= link_to 'Login med Facebook', auth_at_provider_path(:provider => :facebook), :class => "btn btn-primary" %>
+</div>
+
+<div class="clearfix"></div>
+<hr class="left">
+<div class="center">
+  Eller
+</div>
+<hr class="right">
+
 <%= form_for @user_session, :url => user_session_path, :method => :post, :remote => true, :html => { :class => "form-horizontal" } do |f| %>
   <div class="control-group">
     <%= f.label :username, :class => "control-label" %>

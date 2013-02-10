@@ -1,12 +1,18 @@
 Foreningflex::Application.routes.draw do
 
+  get "oauths/oauth"
+
+  get "oauths/callback"
+
   root to: 'pages#root'
 
   resource :user_session
   
   match 'login'   => 'user_sessions#new',     :as => :login
   match 'logout'  => 'user_sessions#destroy', :as => :logout
-
+  match "oauth/callback" => "oauths#callback"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  
   resource :account, :controller => "users"
   
   scope 'bruger' do

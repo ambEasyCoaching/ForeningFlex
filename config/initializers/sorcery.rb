@@ -91,7 +91,10 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.key = "136321823103502"
   config.facebook.secret = "8be6e5aca524f0e68378f054739648eb"
   config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
-  config.facebook.user_info_mapping = {:email => "name"}
+  config.facebook.user_info_mapping = {:email => "email", :first_name => "name", :username => "username"}
+  config.facebook.scope = "email"
+  config.facebook.display = "popup"
+  
   
   # config.github.key = ""
   # config.github.secret = ""
@@ -371,7 +374,7 @@ Rails.application.config.sorcery.configure do |config|
     # Class which holds the various external provider data for this user.
     # Default: `nil`
     #
-    # user.authentications_class =
+    user.authentications_class = Authentication
 
 
     # User's identifier in authentications class.

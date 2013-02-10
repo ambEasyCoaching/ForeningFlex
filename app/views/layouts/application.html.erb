@@ -18,7 +18,7 @@
   <link rel="shortcut icon" href="<%= image_path 'favicon.ico' %>">
 </head>
 <%- body_id = yield :body_id -%>
-<body<%= " id='#{body_id}'" if body_id.present? -%>>
+<body<%= " id=\"#{body_id}\"".html_safe if body_id.present? -%>>
   <div id="wrap">
     <%= render 'layouts/login' %>
 

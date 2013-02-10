@@ -37,6 +37,27 @@ footer#page-footer {
   width: 100%;
 }
 
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+hr + .center {
+  margin-top: -32px;
+  padding-bottom: 20px;
+}
+
+hr.left {
+  width: 42%;
+}
+
+hr.right {
+  width: 40%;
+  position: absolute;
+  margin-top: -30px;
+  right: 20px;
+}
+
 /*============================================================*/
 /*   FRONT PAGE                                               */
 /*============================================================*/

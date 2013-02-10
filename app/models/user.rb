@@ -1,24 +1,17 @@
 # -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
 
   has_many :addresses, :dependent => :destroy
-  has_and_belongs_to_many :clubs
-  
-  #################
-  # Validators
-  
-  validates_presence_of :password, :on => :create
-  validates_confirmation_of :password
-  validates_format_of :first_name, :last_name, :with => /\A[-A-Za-zæøåÆØÅüÜäÄëËïÏöÖÿáÁéÉúÚýÝíÍóÓâÂêÊûÛîÎôÔàÀèÈùÙìÌòÒ\. ]+\z/, :message => "er ugyldigt (må ikke indeholde tal eller specieltegn)"
-  validates_presence_of :gender, :message => "er ikke bestemt"
-  validates :email, :uniqueness => true, :presence => true, :email => true
-
-  #validates_length_of :login, :minimum => 4
-  #validates_inclusion_of :birth_day, :in => 2..99, message => "ugyldig"
-
   accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
+  has_and_belongs_to_many :clubs
+
+  has_many :authentications, :dependent => :destroy
+  accepts_nested_attributes_for :authentications
+  
   has_attached_file :profile_picture, 
                     :path => "/profile-pictures/:id/:basename_:style.:extension",
                     :storage => :s3, 
@@ -32,6 +25,18 @@ class User < ActiveRecord::Base
                       :medium => "300x300>", 
                       :thumb => "150x150>"
                     }
+
+  #################
+  # Validators
+  
+  validates_presence_of :password, :on => :create
+  validates_confirmation_of :password
+  validates_format_of :first_name, :last_name, :with => /\A[-A-Za-zæøåÆØÅüÜäÄëËïÏöÖÿáÁéÉúÚýÝíÍóÓâÂêÊûÛîÎôÔàÀèÈùÙìÌòÒ\. ]+\z/, :message => "er ugyldigt (må ikke indeholde tal eller specieltegn)"
+  validates_presence_of :gender, :message => "er ikke bestemt"
+  validates :email, :uniqueness => true, :presence => true, :email => true
+
+  #validates_length_of :login, :minimum => 4
+  #validates_inclusion_of :birth_day, :in => 2..99, message => "ugyldig"
 
   # Adding new roles should ALWAYS happen at the end of this array
   ROLES = %w[admin super_board board committee coach leader player]
