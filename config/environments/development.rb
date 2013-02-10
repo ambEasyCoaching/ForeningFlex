@@ -1,22 +1,4 @@
-class DisableAssetsLogger
-  def initialize(app)
-    @app = app
-    begin
-      Rails.application.assets.logger = Logger.new('/dev/null')
-    rescue
-    end
-  end
-
-  def call(env)
-    previous_level = Rails.logger.level
-    Rails.logger.level = Logger::ERROR if env['PATH_INFO'].index("/assets/") == 0
-    @app.call(env)
-  ensure
-    Rails.logger.level = previous_level
-  end
-end
-
-Setminton::Application.configure do
+Foreningflex::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on
@@ -51,14 +33,7 @@ Setminton::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
-
-  # Do not show assets in log info
-  config.assets.logger = nil
-
-  # Disables the annoying assets in the rails log
-  config.middleware.insert_before Rails::Rack::Logger, DisableAssetsLogger
+  config.action_mailer.default_url_options = { host: '0.0.0.0:3000' }
 end

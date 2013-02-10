@@ -1,7 +1,7 @@
-SETminton.dk
+ForeningFlex.dk
 ============
 
-SETminton | IT-løsning til de danske badmintonklubber/-foreninger
+ForeningFlex | IT-løsning til danske klubber og foreninger
 
 Style guide
 -----------
@@ -27,11 +27,11 @@ Når der loades scripts og stylesheets sker dette altid med relative protokoler.
 
 Følgende er **forkert**:
 
-    <script src="http://www.setminton.dk/js/jquery.js"></script>
+    <script src="http://www.foreningflex.dk/js/jquery.js"></script>
 
 Her vil man slette `http:` og blot have:
 
-    <script src="//www.setminton.dk/js/jquery.js"></script>
+    <script src="//www.foreningflex.dk/js/jquery.js"></script>
 
 ##### UTF-8 #####
 
@@ -41,7 +41,7 @@ Alle filer skal være i UTF-8 (uden BOM) og vi sender `<meta charset="utf-8">` m
 
 `type` kan undlades på både `script`- og `link`-tags, da browsere i dag kan gætte dem.
 
-    <link rel="stylesheet" href="//www.setminton.dk/css/bootstrap.css">
+    <link rel="stylesheet" href="//www.foreningflex.dk/css/bootstrap.css">
 
 ##### CDN #####
 

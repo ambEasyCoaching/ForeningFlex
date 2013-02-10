@@ -1,4 +1,4 @@
-Setminton::Application.configure do
+Foreningflex::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   # The test environment is used exclusively to run your application's
@@ -22,7 +22,7 @@ Setminton::Application.configure do
   config.action_dispatch.show_exceptions = false
 
   # Disable request forgery protection in test environment
-  config.action_controller.allow_forgery_protection    = false
+  config.action_controller.allow_forgery_protection = false
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the
@@ -34,4 +34,9 @@ Setminton::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.action_mailer.default_url_options = { host: 'example.com' }
 end
+
+# Turn down the cost so that specs run quickly.
+Sorcery::CryptoProviders::BCrypt.cost = 1

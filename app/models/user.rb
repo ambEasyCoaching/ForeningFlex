@@ -1,18 +1,22 @@
 # -*- coding: utf-8 -*-
 class User < ActiveRecord::Base
-  has_many :authentications
+  authenticates_with_sorcery!
+
   has_many :addresses, :dependent => :destroy
   has_and_belongs_to_many :clubs
-
+  
   #################
   # Validators
   
+  validates_presence_of :password, :on => :create
+  validates_confirmation_of :password
   validates_format_of :first_name, :last_name, :with => /\A[-A-Za-zæøåÆØÅüÜäÄëËïÏöÖÿáÁéÉúÚýÝíÍóÓâÂêÊûÛîÎôÔàÀèÈùÙìÌòÒ\. ]+\z/, :message => "er ugyldigt (må ikke indeholde tal eller specieltegn)"
   validates_presence_of :gender, :message => "er ikke bestemt"
+  validates :email, :uniqueness => true, :presence => true, :email => true
+
   #validates_length_of :login, :minimum => 4
   #validates_inclusion_of :birth_day, :in => 2..99, message => "ugyldig"
 
-  accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
   has_attached_file :profile_picture, 
@@ -29,13 +33,6 @@ class User < ActiveRecord::Base
                       :thumb => "150x150>"
                     }
 
-  acts_as_authentic do |config|
-    config.perishable_token_valid_for = 2.weeks
-
-    # Dangerous, remember to maintain perishable self 
-    config.disable_perishable_token_maintenance true
-  end 
-  
   # Adding new roles should ALWAYS happen at the end of this array
   ROLES = %w[admin super_board board committee coach leader player]
 
@@ -46,21 +43,6 @@ class User < ActiveRecord::Base
   
   #################
   # Methods
-
-  def self.find_by_login_or_email(login)
-    User.find_by_login(login) || User.find_by_email(login)
-  end
-
-  def apply_omniauth(omniauth)
-    # Update user info fetching from social network
-    case omniauth['provider']
-    when 'facebook'
-      self.email = omniauth['user_info']['email']  
-    when 'developer'
-      self.email = omniauth['info']['email']
-      self.name = omniauth['info']['name']
-    end
-  end
 
   #################
   # Roles
@@ -84,5 +66,4 @@ class User < ActiveRecord::Base
       super
     end
   end
-
 end

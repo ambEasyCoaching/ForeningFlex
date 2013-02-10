@@ -1,20 +1,23 @@
-common: &common
+# Use 'createuser -s postgres' to create a general purpose db (super)user.
+
+development: &default
   adapter: postgresql
   encoding: utf8
   database: foreningflex_development
-  pool: 5
   username: foreningflex
   password: foreningflex
+  pool: 5
+  timeout: 5000
   host: localhost
 
-development:
-  <<: *common
-
 test:
-  <<: *common
+  <<: *default
+  database: foreningflex_test
+  min_messages: warning
 
 production:
-  <<: *common
+  <<: *default
+  database: foreningflex_production
 
 proxied-console:
   adapter: postgresql 

@@ -8,6 +8,5 @@ class Address < ActiveRecord::Base
   validates_format_of :city, :with => /\A[-A-Za-zæøåÆØÅ\. ]+\z/, :message => "er ugyldigt (må ikke indeholde tal eller specieltegn)"
   validates_length_of :address, :minimum => 5
   validates_presence_of :email
-
 end
   

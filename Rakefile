@@ -4,4 +4,7 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Setminton::Application.load_tasks
+Foreningflex::Application.load_tasks
+
+task(:default).clear
+task default: 'spec'

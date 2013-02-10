@@ -1,21 +1,22 @@
 class UserSessionsController < ApplicationController
-  load_and_authorize_resource
-  
-  before_filter :require_no_user, :only => [:new, :create]
-  before_filter :require_user, :only => :destroy
-  
+
+  skip_before_filter :require_login, :except => [:destroy]
+  skip_authorization_check
+
   def new
+    @user_session = UserSession.new
   end
-  
+
   def create
-    if @user_session.save
-      flash[:notice] = I18n.t('login_success')
+    @user_session = UserSession.new(params[:user_session])
+    # TODO: Account not activated
+    
+    if @user = login(@user_session.username, @user_session.password, @user_session.remember_me)
       respond_to do |format|
-        format.html { redirect_back_or_default account_url }
+        format.html { redirect_back_or_to account_path, :notice => I18n.t('login_success') }
         format.js { render js: "window.location.pathname = #{account_path.to_json}" }
       end 
     else
-      @alert_type = "alert-error"
       respond_to do |format|
         format.html { 
           flash[:error] = I18n.t('login_failed')
@@ -28,23 +29,10 @@ class UserSessionsController < ApplicationController
       end
     end
   end
-  
+
   def destroy
-    current_user_session.destroy
-    flash[:notice] = I18n.t('logout_success')
-    redirect_back_or_default root_url
-  end
-
-  def load_user_from_perishable_token
-    @user = User.find_using_perishable_token(params[:id])
-
-    if @user.present?
-      @user_session = UserSession.create(@user)
-      redirect_to account_path
-    else
-      flash[:notice] = I18n.t('invalid_login')
-      redirect_to root_path
-    end
+    logout
+    redirect_to root_path, :notice => I18n.t('logout_success')
   end
 
 end
