@@ -58,6 +58,7 @@ GEM
       mail
     childprocess (0.3.7)
       ffi (~> 1.0, >= 1.0.6)
+    chosen_rails (0.1.0)
     cocaine (0.4.2)
     coderay (1.0.8)
     coffee-rails (3.2.2)
@@ -297,6 +298,7 @@ DEPENDENCIES
   cane
   capybara (~> 2.0)
   capybara-email
+  chosen_rails
   coffee-rails
   database_cleaner
   decent_exposure

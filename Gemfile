@@ -17,6 +17,7 @@ gem 'pg'
 gem 'rails-i18n'
 gem 'dynamic_form'
 gem 'decent_exposure'
+gem 'chosen_rails'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
