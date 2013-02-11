@@ -1,3 +1,4 @@
+<font size="1">Din bruger herinde blev oprettet d. <%= l @user.created_at -%> og er senest blevet opdateret d. <%= l @user.updated_at -%>.</font>
 <fieldset>
   <legend>Personlige oplysninger</legend>
   <div class="row-fluid">
@@ -26,7 +27,7 @@
 
     <div class="span6">
       <% if @user.profile_picture.nil? %>
-        <%= image_tag "profile.gif", :class => "img-polaroid pull-right" -%>
+        <%= image_tag "profil-pictures/profile.gif", :class => "img-polaroid pull-right" -%>
       <% else %>
         <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
       <% end %>

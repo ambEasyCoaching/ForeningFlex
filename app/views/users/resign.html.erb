@@ -7,6 +7,8 @@
   Det er op til kontaktpersonen at informere dig om din sag.
 </p>
 
-<%= text_area_tag :argument, nil, :rows => 6, :cols => 160 %>
-<br>
-<%= link_to "Send min henvendelse", resign_user_path(current_user), :class => "btn btn-danger" %>
+<%= form_tag resign_user_path(current_user) do %>
+  <%= text_area_tag :argument, nil, :rows => 6, :cols => 160 %>
+  <br>
+  <%= submit_tag "Send min henvendelse", :class => "btn btn-danger" %>
+<% end %>

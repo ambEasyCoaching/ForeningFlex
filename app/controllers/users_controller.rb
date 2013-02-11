@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     if params[:id].present?
       # Send en mail
       # Meld mig ud
-      UserMailer.resign(current_user, current_user.clubs.first).deliver
+      UserMailer.resign(current_user, current_user.clubs.first, params[:argument]).deliver
     end
   end
 
