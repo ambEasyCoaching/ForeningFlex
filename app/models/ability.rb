@@ -6,16 +6,19 @@ class Ability
 
     if user.admin?
       can :manage, :all
+    elsif user.coach?
+      can :manage, User do |other_user|
+        other_user.club_id == user.club_id
+      end
     else
       can [:show, :crate, :destroy], UserSession
-      can [:read, :resign], User, id: user.id
+      can [:read, :resign], User, :id => user.id
 
-      can :manage, User, :id => user.id
+      #can :manage, User, :id => user.id
     end
 
     # No one can destroy themselves.
-    cannot :destroy, User, id: user.id
-
+    cannot :destroy, User, :id => user.id
 
     # Define abilities for the passed in user here. For example:
     #

@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
+    if params[:user_id].present?
+      @user = User.find(params[:user_id])
+    else 
+      @user = current_user
+    end
     @user.addresses.build if @user.addresses.blank?
   end
 
@@ -23,7 +27,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     if @user.save
-      Notifier.welcome(@user).deliver
+      UserMailer.welcome(@user).deliver
       redirect_back_or_default account_path, :notice => "Du er nu registreret"
     else
       render :action => 'new'
@@ -36,6 +40,14 @@ class UsersController < ApplicationController
       redirect_to account_path, :notice => "Konto opdateret"
     else
       render :action => "show"
+    end
+  end
+
+  def resign
+    if params[:id].present?
+      # Send en mail
+      # Meld mig ud
+      UserMailer.resign(current_user, current_user.clubs.first).deliver
     end
   end
 

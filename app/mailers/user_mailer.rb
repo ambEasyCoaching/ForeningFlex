@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 class UserMailer < ActionMailer::Base
   default from: 'info@foreningflex.dk'
-  layout "user_mailer"
+  #layout "user_mailer"
 
   def test_mail(user)
     @user = user
@@ -16,5 +16,12 @@ class UserMailer < ActionMailer::Base
   def welcome(user)
     @user = user
     mail :to => @user.email, :subject => ""
+  end
+
+  def resign(user, club)
+    @user = user
+    @club = club
+    raise club.inspect
+    mail :to => club.contact_person.email, :subject => "Udmeldelses fra #{club.name}"
   end
 end

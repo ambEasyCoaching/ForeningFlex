@@ -24,10 +24,6 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.2.2.0'
   gem 'coffee-rails'
   gem 'uglifier'
-
-  # Heroku suggests that these gems aren't necessary, but they're required to compile less assets on deploy.
-  gem 'therubyracer'
-  gem 'libv8', '~> 3.11.8'
 end
 
 group :test, :development do
