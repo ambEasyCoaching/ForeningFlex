@@ -7,6 +7,6 @@ class CreateClubsUsersAssociation < ActiveRecord::Migration
   end
 
   def down
-    destroy_table 'clubs_users'
+    drop_table 'clubs_users'
   end
 end

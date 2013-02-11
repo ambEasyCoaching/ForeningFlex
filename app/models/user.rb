@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
   has_and_belongs_to_many :clubs
+  has_many :club_contacts, :class_name => "Club", :as => :contact_person
 
   has_many :authentications, :dependent => :destroy
   accepts_nested_attributes_for :authentications

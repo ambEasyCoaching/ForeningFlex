@@ -21,7 +21,6 @@ class UserMailer < ActionMailer::Base
   def resign(user, club)
     @user = user
     @club = club
-    raise club.inspect
     mail :to => club.contact_person.email, :subject => "Udmeldelses fra #{club.name}"
   end
 end
