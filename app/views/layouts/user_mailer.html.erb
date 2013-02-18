@@ -2,13 +2,30 @@
   <head>
   </head>
   <body>
+    <table style='border-collapse:collapse;width:800px;border:none;margin-left:auto;margin-right:auto;font-family:Calibri, sans-serif;font-size:12px;font-style:normal;font-variant:normal;font-weight:normal;line-height:150%;text-align:left;color:#000;'>
+      <tr>
+        <td colspan='2' style='border-top:1px solid #000;border-bottom:1px solid #000;margin:0px;padding:0px;background-color:#fff;'>
+          <%= link_to image_tag("logo.png", :width => "250px"), root_path %>
+        </td>
+        <td style='vertical-align:middle;border-top:1px solid #000;border-bottom:1px solid #000;margin:0px;padding:15px;background-color:#fff;'>
+          <!-- klublogo ind her, med link til deres hjemmeside-->
+        </td>
+      </tr>
+      <tr>
+        <td colspan='3'>
 
-    <h3>DETTE ER EN MAIL</h3>
+          <%= yield -%>
 
-    <%= yield -%>
-
-    <p>
-      DETTE ER BUNDEN AF EN MAIL
-    </p>
+        </td>
+      </tr>
+      <tr>
+        <td colspan='3' style='border-top:1px solid #000;'>
+          <br>
+        </td>
+      </tr>      
+      <tr>
+        <!-- sponsorlogoer ind her -->
+      </tr>
+    </table>
   </body>
 </html>

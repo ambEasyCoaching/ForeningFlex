@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class UsersController < ApplicationController
 
   before_filter :require_login
@@ -46,8 +47,8 @@ class UsersController < ApplicationController
   def resign
     if params[:id].present?
       # Send en mail
-      # Meld mig ud
       UserMailer.resign(current_user, current_user.clubs.first, params[:argument]).deliver
+      redirect_to root_path, :notice => "Dit ønske er blevet sendt til klubben og det er nu op til deres kontaktperson at bestemme om det er i orden og derefter informere dig."
     end
   end
 

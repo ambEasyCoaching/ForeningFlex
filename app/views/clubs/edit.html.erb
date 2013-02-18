@@ -25,15 +25,15 @@
       </div>
 
       <div class="span6">
-        <% if @user.profile_picture.nil? %>
-          <%= image_tag "profile.gif", :class => "img-polaroid pull-right" -%>
+        <% if @club.profile_picture.nil? %>
+          <%= image_tag "profile.gif", :class => "img pull-right" -%>
         <% else %>
-          <%= image_tag @user.profile_picture.url(:thumb), :class => "img-polaroid pull-right" -%>
+          <%= image_tag @club.club_logo.url(:thumb), :class => "img pull-right" -%>
         <% end %>
-        <%= edit.label :logo, "Profilbillede" %>
+        <%= edit.label :logo, "Klublogo" %>
         <%= edit.file_field :logo %>
       </div>
   </fieldset>
   <br>
-  <%= f.submit "Gem mine medlemsinformationer", :class => "btn btn-success" %>
+  <%= f.submit "Gem klubindstillingerne", :class => "btn btn-success" %>
 <% end %>

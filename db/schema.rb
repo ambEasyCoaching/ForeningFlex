@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130211221323) do
+ActiveRecord::Schema.define(:version => 20130211224410) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -45,14 +45,18 @@ ActiveRecord::Schema.define(:version => 20130211221323) do
     t.string   "cvr"
     t.string   "sport"
     t.string   "merchant_number"
-    t.integer  "sms_counter",         :default => 0
+    t.integer  "sms_counter",            :default => 0
     t.string   "street_name"
     t.string   "street_number"
     t.string   "zip"
     t.string   "city"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "contact_person_type"
+    t.string   "club_logo_file_name"
+    t.string   "club_logo_content_type"
+    t.integer  "club_logo_file_size"
+    t.datetime "club_logo_updated_at"
   end
 
   create_table "clubs_users", :id => false, :force => true do |t|

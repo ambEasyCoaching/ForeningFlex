@@ -14,7 +14,8 @@ class Ability
       can [:show, :crate, :destroy], UserSession
       can [:read, :resign], User, :id => user.id
 
-      #can :manage, User, :id => user.id
+      # THIS MUST NOT GO LIVE
+      can :manage, User, :id => user.id
     end
 
     # No one can destroy themselves.

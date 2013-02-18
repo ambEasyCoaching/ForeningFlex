@@ -1,8 +1,13 @@
-<h3>Kære <%= @club.name -%>,</h3>
+<h3>Kære <%= @club.contact_person.first_name -%>,</h3>
 <p>
-  <span style="color: red">Bla bla bla <%= @user.first_name -%> vil gerne udmeldes</span>
-</p>
-
-<p>
-  <%= @argument -%>
+  <%= @user.first_name + " " + @user.last_name -%> ønsker at melde sig ud af <%= @club.name -%>.<br>
+  Her er begrundelsen:<br>
+  <em>
+    <%= @argument -%>
+  </em>
+  <br><br>
+  Det er nu op til dig, at tjekke op på, om det er i orden at dette medlem bliver udmeldt.
+  Det kan ske at medlemmet har udestående kontingentopkrævning eller lignende.<br>
+  Selve udmeldingen skal ske fra siden \"Bestyrelsen » Medlemsstyring\", hvor du vælger det aktuelle medlem og klikker på \"Udmeld medlem\", således at der bliver sat en dato i feltet \"Udmeldelsesdato\".<br>
+  Du kan give medlemmet direkte besked ved at svare på denne mail.
 </p>

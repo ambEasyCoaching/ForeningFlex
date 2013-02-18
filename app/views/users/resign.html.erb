@@ -8,7 +8,7 @@
 </p>
 
 <%= form_tag resign_user_path(current_user) do %>
-  <%= text_area_tag :argument, nil, :rows => 6, :cols => 160 %>
+  <%= text_area_tag :argument, nil, :size => "25x10" %>
   <br>
-  <%= submit_tag "Send min henvendelse", :class => "btn btn-danger" %>
+  <%= submit_tag "Send min henvendelse", :class => "btn btn-primary" %>
 <% end %>

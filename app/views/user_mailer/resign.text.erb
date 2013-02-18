@@ -1,4 +1,11 @@
-Bla bla bla <%= @user.name -%> vil gerne udmeldes
+Kære <%= @club.contact_person.first_name -%>,
 
+<%= @user.first_name + " " + @user.last_name -%> ønsker at melde sig ud af <%= @club.name -%>.
 
-dsads
+Her er begrundelsen:
+<%= @argument -%>
+
+Det er nu op til dig, at tjekke op på, om det er i orden at dette medlem bliver udmeldt.
+Det kan ske at medlemmet har udestående kontingentopkrævning eller lignende.
+Selve udmeldingen skal ske fra siden "Bestyrelsen » Medlemsstyring", hvor du vælger det aktuelle medlem og klikker på "Udmeld medlem", således at der bliver sat en dato i feltet "Udmeldelsesdato".
+Du kan give medlemmet direkte besked ved at svare på denne mail.
